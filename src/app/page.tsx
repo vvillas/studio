@@ -9,6 +9,13 @@ import Link from 'next/link';
 import {useIsMobile} from "@/hooks/use-mobile";
 import {Card, CardContent} from "@/components/ui/card";
 import {useIsLargeScreen} from "@/hooks/use-large-screen";
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarTrigger,
+} from "@/components/ui/menubar";
 
 const FEATURED_ADS = [
   {
@@ -271,15 +278,17 @@ export default function Home() {
       
         {/* Compact Menu (visible on mobile) */}
         {isMobile && (
-          <div className="bg-secondary p-4 mb-4">
-            <h3 className="font-semibold mb-2">Filtros</h3>
-            <div className="flex flex-wrap gap-2">
-              <Button size="sm" variant="outline">Categoria</Button>
-              <Button size="sm" variant="outline">Faixa de Preço</Button>
-              <Button size="sm" variant="outline">Localização</Button>
-              <Button size="sm" variant="outline">Condição</Button>
-            </div>
-          </div>
+          <Menubar>
+            <MenubarMenu>
+              <MenubarTrigger>Filtros</MenubarTrigger>
+              <MenubarContent>
+                <MenubarItem>Categoria</MenubarItem>
+                <MenubarItem>Faixa de Preço</MenubarItem>
+                <MenubarItem>Localização</MenubarItem>
+                <MenubarItem>Condição</MenubarItem>
+              </MenubarContent>
+            </MenubarMenu>
+          </Menubar>
         )}
 
       <div className="w-full">
