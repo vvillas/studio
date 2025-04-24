@@ -3,12 +3,21 @@
 import { useState, useEffect } from 'react';
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ShoppingCart, Moon, Sun } from "lucide-react";
+import { ShoppingCart, Moon, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { signIn, signOut, useSession } from 'next-auth/react';
 
 const Navbar = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const { data: session, status } = useSession();
+  const isAuthenticated = status === "authenticated";
 
   useEffect(() => {
     // On mount, check local storage for theme
@@ -44,21 +53,42 @@ const Navbar = () => {
           <Input type="search" placeholder="Pesquisar..." className="mx-auto" />
         </div>
 
+        {/* Post Ad Button */}
+        <Link href="/post-ad" className="mr-4">
+          <Button>Anuncie</Button>
+        </Link>
+
         {/* User Profile and Cart */}
         <div className="flex items-center space-x-4">
-          <Link href="/post-ad">
-            <Button>
-              Anuncie
-            </Button>
-          </Link>
           <Button variant="ghost" size="icon" onClick={toggleDarkMode}>
-            {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            <Moon className="h-5 w-5" />
           </Button>
           <ShoppingCart className="h-5 w-5" />
-          <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
+
+          {isAuthenticated ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="h-8 w-8 p-0">
+                  <Avatar className="h-8 w-8">
+                    <AvatarImage src={session?.user?.image || "https://github.com/shadcn.png"} alt={session?.user?.name || "User"} />
+                    <AvatarFallback>{session?.user?.name?.slice(0, 2).toUpperCase() || "CN"}</AvatarFallback>
+                  </Avatar>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56" align="end" forceMount>
+                <DropdownMenuItem>Minhas Compras</DropdownMenuItem>
+                <DropdownMenuItem>Meu Cadastro</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => signOut()}>Sair</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
+            <Button variant="ghost" className="h-8 w-8 p-0" onClick={() => signIn()}>
+              <Avatar className="h-8 w-8">
+                <AvatarImage src="https://github.com/shadcn.png" alt="User" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+            </Button>
+          )}
         </div>
       </div>
     </div>
