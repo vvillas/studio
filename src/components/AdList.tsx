@@ -241,7 +241,7 @@ const AdList = () => {
           <div className="flex flex-col">
             <img src={ad.imageUrl} alt={ad.title} className="rounded-md object-cover h-40 w-full" />
             <CardContent className="p-2">
-              <p className="text-sm ">{ad.description}</p>
+              <p className="text-sm overflow-hidden h-10">{ad.description}</p>
               <div className="flex items-center text-xs text-gray-500">
                 <MapPin className="h-3 w-3 mr-1" />
                 {ad.location}
