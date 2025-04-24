@@ -1,6 +1,6 @@
+"use client";
 
 import AdList from '@/components/AdList';
-import CategoryFilter from '@/components/CategoryFilter';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Plus } from 'lucide-react';
@@ -16,11 +16,8 @@ export default function Home() {
           </Button>
         </Link>
       </div>
-
-      <CategoryFilter />
       <AdList />
     </div>
   );
 }
-
 

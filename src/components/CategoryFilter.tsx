@@ -1,12 +1,18 @@
+"use client";
 
-// CategoryFilter.tsx
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const CategoryFilter = () => {
   return (
     <div className="mb-4">
       <Select>
-        <SelectTrigger className="w-[180px]">
+        <SelectTrigger className="w-full text-sm">
           <SelectValue placeholder="Filtrar por categoria" />
         </SelectTrigger>
         <SelectContent>
