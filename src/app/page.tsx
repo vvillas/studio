@@ -5,6 +5,7 @@ import type {Metadata} from 'next';
 import {useEffect, useState} from 'react';
 import {Button} from "@/components/ui/button";
 import {ChevronLeft, ChevronRight} from "lucide-react";
+import Link from 'next/link';
 
 const FEATURED_ADS = [
   {

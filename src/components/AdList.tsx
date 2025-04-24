@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useEffect, useState } from "react";
 import { Ad } from "@/types/ad";
 import { MapPin } from "lucide-react";
+import Link from 'next/link';
 
 const DUMMY_ADS: Ad[] = [
   {
@@ -58,7 +59,7 @@ const DUMMY_ADS: Ad[] = [
   {
     id: "7",
     title: "Relógio de pulso antigo, revisado e funcionando",
-    description: "Relógio de pulso antigo, revisado e funcionando.",
+    description: "Relógio de pulso antigo, revisado e funcionando",
     price: 200,
     imageUrl: "https://picsum.photos/200/156",
     location: "Fortaleza",
@@ -237,23 +238,25 @@ const AdList = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {ads.map((ad) => (
-        <Card key={ad.id}>
-          <div className="flex flex-col">
-            <img src={ad.imageUrl} alt={ad.title} className="rounded-md object-cover h-40 w-full" />
-            <CardContent className="p-2">
-              <p className="text-sm overflow-hidden h-10">{ad.description}</p>
-              <div className="flex items-center text-xs text-gray-500">
-                <MapPin className="h-3 w-3 mr-1" />
-                {ad.location}
-              </div>
-               <hr className="my-2 border-gray-200 dark:border-gray-700" />
-              <div className="flex items-center justify-between">
-              
-              <p className="text-lg font-bold text-right">R$ {ad.price}</p>
-              </div>
-            </CardContent>
-          </div>
-        </Card>
+        <Link href={`/ad/${ad.id}`} key={ad.id}>
+          <Card>
+            <div className="flex flex-col">
+              <img src={ad.imageUrl} alt={ad.title} className="rounded-md object-cover h-40 w-full" />
+              <CardContent className="p-2">
+                <p className="text-sm overflow-hidden h-10">{ad.description}</p>
+                <div className="flex items-center text-xs text-gray-500">
+                  <MapPin className="h-3 w-3 mr-1" />
+                  {ad.location}
+                </div>
+                 <hr className="my-2 border-gray-200 dark:border-gray-700" />
+                <div className="flex items-center justify-between">
+                
+                <p className="text-lg font-bold text-right">R$ {ad.price}</p>
+                </div>
+              </CardContent>
+            </div>
+          </Card>
+        </Link>
       ))}
     </div>
   );
