@@ -188,7 +188,7 @@ const Navbar = () => {
     <div className="bg-background sticky top-0 z-50 border-b">
       <div className="container mx-auto py-4 flex items-center justify-between">
         {/* Logo */}
-        <div className="text-lg font-bold">Altamerc</div>
+        <div className="text-lg font-bold">Altamex</div>
 
         {/* Search Bar */}
         <div className="flex-grow mx-4">
@@ -282,3 +282,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
