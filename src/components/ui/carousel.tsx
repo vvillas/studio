@@ -7,7 +7,9 @@ import {
   CarouselNext,
   CarouselPrevious,
   CarouselItem,
-} from "vaul-carousel";
+  CarouselApiProvider,
+  useCarouselContext,
+} from "@radix-ui/react-carousel";
 
 import { cn } from "@/lib/utils";
 
@@ -25,4 +27,5 @@ const Carousel = React.forwardRef<
 ));
 Carousel.displayName = CarouselPrimitive.displayName;
 
-export { Carousel, CarouselContent, CarouselPrevious, CarouselNext, CarouselItem };
+export { Carousel, CarouselContent, CarouselPrevious, CarouselNext, CarouselItem, CarouselApiProvider, useCarouselContext };
+
