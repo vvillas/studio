@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useCallback } from 'react';
+import EmblaCarousel from 'embla-carousel-react';
 import {
-  useEmblaCarousel,
   EmblaCarouselType,
   EmblaOptionsType,
 } from 'embla-carousel-react';
@@ -16,7 +16,7 @@ interface Props {
 }
 
 const Carousel = ({ slides, options, className }: Props) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel(options);
+  const [emblaRef, emblaApi] = EmblaCarousel(options);
 
   const onButtonClick = useCallback(
     (index: number) => {
@@ -59,3 +59,4 @@ const Carousel = ({ slides, options, className }: Props) => {
 };
 
 export default Carousel;
+
