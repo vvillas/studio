@@ -3,8 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ShoppingCart } from "lucide-react";
-import { Switch } from "@/components/ui/switch";
+import { ShoppingCart, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
 
@@ -52,7 +51,9 @@ const Navbar = () => {
               Anuncie
             </Button>
           </Link>
-          <Switch id="dark-mode" checked={isDarkMode} onCheckedChange={toggleDarkMode} />
+          <Button variant="ghost" size="icon" onClick={toggleDarkMode}>
+            {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          </Button>
           <Avatar>
             <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
             <AvatarFallback>CN</AvatarFallback>
