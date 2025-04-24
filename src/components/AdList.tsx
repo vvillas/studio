@@ -241,11 +241,13 @@ const AdList = () => {
           <div className="flex flex-col">
             <img src={ad.imageUrl} alt={ad.title} className="rounded-md object-cover h-40 w-full" />
             <CardContent className="p-2">
-              <p className="text-sm font-medium">{ad.title}</p>
-              <p className="text-sm font-medium">R$ {ad.price}</p>
+              <p className="text-sm ">{ad.title}</p>
+              <div className="flex items-center justify-between">
               <div className="flex items-center text-xs text-gray-500">
                 <MapPin className="h-3 w-3 mr-1" />
                 {ad.location}
+              </div>
+              <p className="text-sm font-bold">R$ {ad.price}</p>
               </div>
             </CardContent>
           </div>
