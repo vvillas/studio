@@ -1,4 +1,3 @@
-
 "use client";
 
 // AdList.tsx
@@ -77,6 +76,48 @@ const DUMMY_ADS: Ad[] = [
     price: 600,
     imageUrl: "https://picsum.photos/200/158",
   },
+  {
+    id: "10",
+    title: "Guitarra Elétrica",
+    description: "Guitarra elétrica semi nova com amplificador.",
+    price: 750,
+    imageUrl: "https://picsum.photos/200/159",
+  },
+  {
+    id: "11",
+    title: "Vestido de Festa",
+    description: "Vestido de festa longo, ideal para formaturas e casamentos.",
+    price: 380,
+    imageUrl: "https://picsum.photos/200/160",
+  },
+  {
+    id: "12",
+    title: "Skate",
+    description: "Skate novo, ideal para iniciantes.",
+    price: 150,
+    imageUrl: "https://picsum.photos/200/161",
+  },
+  {
+    id: "13",
+    title: "Tênis de Corrida",
+    description: "Tênis de corrida profissional, confortável e leve.",
+    price: 220,
+    imageUrl: "https://picsum.photos/200/162",
+  },
+  {
+    id: "14",
+    title: "Notebook",
+    description: "Notebook com processador i5, 8GB de RAM e SSD de 256GB.",
+    price: 1800,
+    imageUrl: "https://picsum.photos/200/163",
+  },
+  {
+    id: "15",
+    title: "Fone de Ouvido Bluetooth",
+    description: "Fone de ouvido Bluetooth com cancelamento de ruído.",
+    price: 120,
+    imageUrl: "https://picsum.photos/200/164",
+  }
 ];
 
 const AdList = () => {
@@ -92,14 +133,14 @@ const AdList = () => {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {ads.map((ad) => (
         <Card key={ad.id}>
-          <CardHeader>
-            <CardTitle>{ad.title}</CardTitle>
-          </CardHeader>
-          <CardContent className="flex flex-col gap-2">
+          <div className="flex flex-col">
             <img src={ad.imageUrl} alt={ad.title} className="rounded-md object-cover h-40 w-full" />
-            <CardDescription>{ad.description}</CardDescription>
-            <p className="text-sm font-medium">Preço: R$ {ad.price}</p>
-          </CardContent>
+            <CardContent className="p-2">
+              <CardTitle className="text-sm">{ad.title}</CardTitle>
+              <CardDescription>{ad.description}</CardDescription>
+              <p className="text-sm font-medium">Preço: R$ {ad.price}</p>
+            </CardContent>
+          </div>
         </Card>
       ))}
     </div>
@@ -107,5 +148,3 @@ const AdList = () => {
 };
 
 export default AdList;
-
-    
