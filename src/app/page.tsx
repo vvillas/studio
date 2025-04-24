@@ -96,10 +96,10 @@ export default function Home() {
 
         {/* Controles do Banner */}
         <div className="absolute top-1/2 transform -translate-y-1/2 left-2 right-2 flex justify-between items-center">
-          <Button variant="ghost" size="icon" onClick={goToPreviousAd}>
+          <Button variant="ghost" size="icon" className="bg-white/50 hover:bg-white/75" onClick={goToPreviousAd}>
             <ChevronLeft className="h-6 w-6" />
           </Button>
-          <Button variant="ghost" size="icon" onClick={goToNextAd}>
+          <Button variant="ghost" size="icon" className="bg-white/50 hover:bg-white/75" onClick={goToNextAd}>
             <ChevronRight className="h-6 w-6" />
           </Button>
         </div>
