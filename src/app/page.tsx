@@ -243,7 +243,6 @@ export default function Home() {
   const [currentAdIndex, setCurrentAdIndex] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
   const isMobile = useIsMobile();
-  const isLargeScreen = useIsLargeScreen();
 
   useEffect(() => {
     let intervalId: NodeJS.Timeout;
@@ -268,19 +267,21 @@ export default function Home() {
   return (
     <div className="flex">
       {/* Sidebar (visible on desktop) */}
-      {isLargeScreen ? null : (
-        <div className="bg-secondary p-4 mb-4">
-          <h3 className="font-semibold mb-2">Filtros</h3>
-          <div className="flex flex-wrap gap-2">
-            <Button size="sm" variant="outline">Categoria</Button>
-            <Button size="sm" variant="outline">Faixa de Preço</Button>
-            <Button size="sm" variant="outline">Localização</Button>
-            <Button size="sm" variant="outline">Condição</Button>
+      
+        {/* Compact Menu (visible on mobile) */}
+        {isMobile && (
+          <div className="bg-secondary p-4 mb-4">
+            <h3 className="font-semibold mb-2">Filtros</h3>
+            <div className="flex flex-wrap gap-2">
+              <Button size="sm" variant="outline">Categoria</Button>
+              <Button size="sm" variant="outline">Faixa de Preço</Button>
+              <Button size="sm" variant="outline">Localização</Button>
+              <Button size="sm" variant="outline">Condição</Button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      <div className={isLargeScreen ? "flex-1" : "w-full"}>
+      <div className="w-full">
         {/* Banner Rotativo */}
         <div className="relative w-full h-64 overflow-hidden rounded-md mb-4">
           <img
@@ -328,3 +329,4 @@ export default function Home() {
     </div>
   );
 }
+
