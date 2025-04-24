@@ -1,9 +1,8 @@
-
 import type {Metadata} from 'next';
 import {Geist, Geist_Mono} from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
-import {Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupLabel, SidebarInput, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger, SidebarHeader, SidebarInset} from '@/components/ui/sidebar';
+import {Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupLabel, SidebarInput, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger, SidebarHeader, SidebarInset, SidebarRail} from '@/components/ui/sidebar';
 import CategoryFilter from "@/components/CategoryFilter";
 import PriceRangeFilter from "@/components/PriceRangeFilter";
 import ConditionFilter from "@/components/ConditionFilter";
@@ -64,6 +63,7 @@ export default function RootLayout({
                 </p>
               </SidebarFooter>
             </Sidebar>
+            <SidebarRail/>
             <SidebarInset>
               {children}
             </SidebarInset>
@@ -73,3 +73,4 @@ export default function RootLayout({
     </html>
   );
 }
+

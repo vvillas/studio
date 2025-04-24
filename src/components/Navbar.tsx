@@ -33,7 +33,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-background sticky top-0 z-10 border-b">
+    <div className="bg-background sticky top-0 z-50 border-b">
       <div className="container mx-auto py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="text-lg font-bold">Classifieds Lite</div>
@@ -58,3 +58,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
