@@ -1,16 +1,9 @@
 "use client";
 
 // AdList.tsx
-import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { useEffect, useState } from "react";
-
-interface Ad {
-  id: string;
-  title: string;
-  description: string;
-  price: number;
-  imageUrl: string;
-}
+import { Ad } from "@/types/ad";
 
 const DUMMY_ADS: Ad[] = [
   {
@@ -160,6 +153,48 @@ const DUMMY_ADS: Ad[] = [
     price: 420,
     imageUrl: "https://picsum.photos/200/170",
   },
+    {
+    id: "22",
+    title: "Panela de Pressão Elétrica",
+    description: "Cozinhe seus alimentos de forma rápida e segura.",
+    price: 299,
+    imageUrl: "https://picsum.photos/200/171",
+  },
+  {
+    id: "23",
+    title: "Liquidificador",
+    description: "Prepare vitaminas e sucos deliciosos.",
+    price: 149,
+    imageUrl: "https://picsum.photos/200/172",
+  },
+  {
+    id: "24",
+    title: "Forno Elétrico",
+    description: "Asse bolos, pães e pizzas com facilidade.",
+    price: 399,
+    imageUrl: "https://picsum.photos/200/173",
+  },
+  {
+    id: "25",
+    title: "Aspirador de Pó",
+    description: "Mantenha sua casa sempre limpa e organizada.",
+    price: 199,
+    imageUrl: "https://picsum.photos/200/174",
+  },
+  {
+    id: "26",
+    title: "Ferro de Passar Roupa",
+    description: "Passe suas roupas com rapidez e eficiência.",
+    price: 79,
+    imageUrl: "https://picsum.photos/200/175",
+  },
+  {
+    id: "27",
+    title: "Batedeira",
+    description: "Prepare massas e cremes com facilidade.",
+    price: 129,
+    imageUrl: "https://picsum.photos/200/176",
+  },
 ];
 
 const AdList = () => {
@@ -178,7 +213,7 @@ const AdList = () => {
           <div className="flex flex-col">
             <img src={ad.imageUrl} alt={ad.title} className="rounded-md object-cover h-40 w-full" />
             <CardContent className="p-2">
-              <CardTitle className="text-sm">{ad.title}</CardTitle>
+              <p className="text-sm font-medium">{ad.description}</p>
               <p className="text-sm font-medium">Preço: R$ {ad.price}</p>
             </CardContent>
           </div>
