@@ -35,6 +35,48 @@ const DUMMY_ADS: Ad[] = [
     price: 80,
     imageUrl: "https://picsum.photos/200/152",
   },
+  {
+    id: "4",
+    title: "Câmera Fotográfica",
+    description: "Câmera fotográfica profissional com lentes extras.",
+    price: 450,
+    imageUrl: "https://picsum.photos/200/153",
+  },
+  {
+    id: "5",
+    title: "Mesa de Jantar",
+    description: "Mesa de jantar de madeira maciça para 6 pessoas.",
+    price: 320,
+    imageUrl: "https://picsum.photos/200/154",
+  },
+  {
+    id: "6",
+    title: "Livros de Coleção",
+    description: "Coleção de livros raros em perfeito estado de conservação.",
+    price: 180,
+    imageUrl: "https://picsum.photos/200/155",
+  },
+  {
+    id: "7",
+    title: "Relógio Antigo",
+    description: "Relógio de pulso antigo, revisado e funcionando.",
+    price: 200,
+    imageUrl: "https://picsum.photos/200/156",
+  },
+  {
+    id: "8",
+    title: "Sofá Retrátil",
+    description: "Sofá retrátil e reclinável, super confortável.",
+    price: 500,
+    imageUrl: "https://picsum.photos/200/157",
+  },
+  {
+    id: "9",
+    title: "Tapete Persa",
+    description: "Tapete persa autêntico, feito à mão.",
+    price: 600,
+    imageUrl: "https://picsum.photos/200/158",
+  },
 ];
 
 const AdList = () => {
@@ -65,3 +107,5 @@ const AdList = () => {
 };
 
 export default AdList;
+
+    
