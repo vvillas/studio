@@ -1,7 +1,7 @@
 "use client";
 
 // AdList.tsx
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { useEffect, useState } from "react";
 
 interface Ad {
@@ -117,7 +117,49 @@ const DUMMY_ADS: Ad[] = [
     description: "Fone de ouvido Bluetooth com cancelamento de ruído.",
     price: 120,
     imageUrl: "https://picsum.photos/200/164",
-  }
+  },
+  {
+    id: "16",
+    title: "Câmera Vintage",
+    description: "Câmera antiga para colecionadores.",
+    price: 300,
+    imageUrl: "https://picsum.photos/200/165",
+  },
+  {
+    id: "17",
+    title: "Mesa de Escritório",
+    description: "Mesa de escritório em bom estado.",
+    price: 280,
+    imageUrl: "https://picsum.photos/200/166",
+  },
+  {
+    id: "18",
+    title: "Luminária de Chão",
+    description: "Luminária de chão moderna.",
+    price: 90,
+    imageUrl: "https://picsum.photos/200/167",
+  },
+  {
+    id: "19",
+    title: "Quadros Decorativos",
+    description: "Conjunto de quadros para decoração de interiores.",
+    price: 150,
+    imageUrl: "https://picsum.photos/200/168",
+  },
+  {
+    id: "20",
+    title: "Escrivaninha",
+    description: "Escrivaninha para estudo ou trabalho.",
+    price: 350,
+    imageUrl: "https://picsum.photos/200/169",
+  },
+  {
+    id: "21",
+    title: "Prancha de Surf",
+    description: "Prancha de surf seminova.",
+    price: 420,
+    imageUrl: "https://picsum.photos/200/170",
+  },
 ];
 
 const AdList = () => {
@@ -137,7 +179,6 @@ const AdList = () => {
             <img src={ad.imageUrl} alt={ad.title} className="rounded-md object-cover h-40 w-full" />
             <CardContent className="p-2">
               <CardTitle className="text-sm">{ad.title}</CardTitle>
-              <CardDescription>{ad.description}</CardDescription>
               <p className="text-sm font-medium">Preço: R$ {ad.price}</p>
             </CardContent>
           </div>
