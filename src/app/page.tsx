@@ -8,8 +8,7 @@ import { Plus } from 'lucide-react';
 export default function Home() {
   return (
     <div className="container mx-auto py-8">
-      <div className="flex justify-between items-center mb-4">
-        <h1 className="text-2xl font-bold">Classificados Lite</h1>
+      <div className="flex justify-end items-center mb-4">
         <Link href="/post-ad">
           <Button>
             <Plus className="mr-2 h-4 w-4" />
@@ -23,4 +22,5 @@ export default function Home() {
     </div>
   );
 }
+
 
