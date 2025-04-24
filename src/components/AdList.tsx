@@ -4,11 +4,12 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { useEffect, useState } from "react";
 import { Ad } from "@/types/ad";
+import { MapPin } from "lucide-react";
 
 const DUMMY_ADS: Ad[] = [
   {
     id: "1",
-    title: "Bicicleta Vintage",
+    title: "Bicicleta Vintage clássica em excelente estado",
     description: "Bicicleta vintage clássica em excelente estado.",
     price: 250,
     imageUrl: "https://picsum.photos/200/150",
@@ -16,7 +17,7 @@ const DUMMY_ADS: Ad[] = [
   },
   {
     id: "2",
-    title: "Jaqueta de Couro",
+    title: "Jaqueta de Couro genuíno, pouco usada",
     description: "Jaqueta de couro genuíno, pouco usada.",
     price: 120,
     imageUrl: "https://picsum.photos/200/151",
@@ -24,7 +25,7 @@ const DUMMY_ADS: Ad[] = [
   },
   {
     id: "3",
-    title: "Cafeteira",
+    title: "Cafeteira de alta qualidade, faz um café delicioso",
     description: "Cafeteira de alta qualidade, faz um café delicioso.",
     price: 80,
     imageUrl: "https://picsum.photos/200/152",
@@ -32,7 +33,7 @@ const DUMMY_ADS: Ad[] = [
   },
   {
     id: "4",
-    title: "Câmera Fotográfica",
+    title: "Câmera Fotográfica profissional com lentes extras",
     description: "Câmera fotográfica profissional com lentes extras.",
     price: 450,
     imageUrl: "https://picsum.photos/200/153",
@@ -40,7 +41,7 @@ const DUMMY_ADS: Ad[] = [
   },
   {
     id: "5",
-    title: "Mesa de Jantar",
+    title: "Mesa de Jantar de madeira maciça para 6 pessoas",
     description: "Mesa de jantar de madeira maciça para 6 pessoas.",
     price: 320,
     imageUrl: "https://picsum.photos/200/154",
@@ -48,7 +49,7 @@ const DUMMY_ADS: Ad[] = [
   },
   {
     id: "6",
-    title: "Livros de Coleção",
+    title: "Coleção de livros raros em perfeito estado de conservação",
     description: "Coleção de livros raros em perfeito estado de conservação.",
     price: 180,
     imageUrl: "https://picsum.photos/200/155",
@@ -56,7 +57,7 @@ const DUMMY_ADS: Ad[] = [
   },
   {
     id: "7",
-    title: "Relógio Antigo",
+    title: "Relógio de pulso antigo, revisado e funcionando",
     description: "Relógio de pulso antigo, revisado e funcionando.",
     price: 200,
     imageUrl: "https://picsum.photos/200/156",
@@ -64,7 +65,7 @@ const DUMMY_ADS: Ad[] = [
   },
   {
     id: "8",
-    title: "Sofá Retrátil",
+    title: "Sofá retrátil e reclinável, super confortável",
     description: "Sofá retrátil e reclinável, super confortável.",
     price: 500,
     imageUrl: "https://picsum.photos/200/157",
@@ -72,7 +73,7 @@ const DUMMY_ADS: Ad[] = [
   },
   {
     id: "9",
-    title: "Tapete Persa",
+    title: "Tapete persa autêntico, feito à mão",
     description: "Tapete persa autêntico, feito à mão.",
     price: 600,
     imageUrl: "https://picsum.photos/200/158",
@@ -80,7 +81,7 @@ const DUMMY_ADS: Ad[] = [
   },
   {
     id: "10",
-    title: "Guitarra Elétrica",
+    title: "Guitarra Elétrica semi nova com amplificador",
     description: "Guitarra elétrica semi nova com amplificador.",
     price: 750,
     imageUrl: "https://picsum.photos/200/159",
@@ -88,7 +89,7 @@ const DUMMY_ADS: Ad[] = [
   },
   {
     id: "11",
-    title: "Vestido de Festa",
+    title: "Vestido de Festa longo, ideal para formaturas e casamentos",
     description: "Vestido de festa longo, ideal para formaturas e casamentos.",
     price: 380,
     imageUrl: "https://picsum.photos/200/160",
@@ -96,15 +97,15 @@ const DUMMY_ADS: Ad[] = [
   },
   {
     id: "12",
-    title: "Skate",
+    title: "Skate novo, ideal para iniciantes",
     description: "Skate novo, ideal para iniciantes.",
     price: 150,
     imageUrl: "https://picsum.photos/200/161",
     location: "Campinas",
   },
-  {
+    {
     id: "13",
-    title: "Tênis de Corrida",
+    title: "Tênis de Corrida profissional, confortável e leve",
     description: "Tênis de corrida profissional, confortável e leve.",
     price: 220,
     imageUrl: "https://picsum.photos/200/162",
@@ -112,7 +113,7 @@ const DUMMY_ADS: Ad[] = [
   },
   {
     id: "14",
-    title: "Notebook",
+    title: "Notebook com processador i5, 8GB de RAM e SSD de 256GB",
     description: "Notebook com processador i5, 8GB de RAM e SSD de 256GB.",
     price: 1800,
     imageUrl: "https://picsum.photos/200/163",
@@ -120,7 +121,7 @@ const DUMMY_ADS: Ad[] = [
   },
   {
     id: "15",
-    title: "Fone de Ouvido Bluetooth",
+    title: "Fone de Ouvido Bluetooth com cancelamento de ruído",
     description: "Fone de ouvido Bluetooth com cancelamento de ruído.",
     price: 120,
     imageUrl: "https://picsum.photos/200/164",
@@ -128,7 +129,7 @@ const DUMMY_ADS: Ad[] = [
   },
   {
     id: "16",
-    title: "Câmera Vintage",
+    title: "Câmera antiga para colecionadores",
     description: "Câmera antiga para colecionadores.",
     price: 300,
     imageUrl: "https://picsum.photos/200/165",
@@ -136,7 +137,7 @@ const DUMMY_ADS: Ad[] = [
   },
   {
     id: "17",
-    title: "Mesa de Escritório",
+    title: "Mesa de escritório em bom estado",
     description: "Mesa de escritório em bom estado.",
     price: 280,
     imageUrl: "https://picsum.photos/200/166",
@@ -144,7 +145,7 @@ const DUMMY_ADS: Ad[] = [
   },
   {
     id: "18",
-    title: "Luminária de Chão",
+    title: "Luminária de chão moderna",
     description: "Luminária de chão moderna.",
     price: 90,
     imageUrl: "https://picsum.photos/200/167",
@@ -152,7 +153,7 @@ const DUMMY_ADS: Ad[] = [
   },
   {
     id: "19",
-    title: "Quadros Decorativos",
+    title: "Conjunto de quadros para decoração de interiores",
     description: "Conjunto de quadros para decoração de interiores.",
     price: 150,
     imageUrl: "https://picsum.photos/200/168",
@@ -160,7 +161,7 @@ const DUMMY_ADS: Ad[] = [
   },
   {
     id: "20",
-    title: "Escrivaninha",
+    title: "Escrivaninha para estudo ou trabalho",
     description: "Escrivaninha para estudo ou trabalho.",
     price: 350,
     imageUrl: "https://picsum.photos/200/169",
@@ -168,7 +169,7 @@ const DUMMY_ADS: Ad[] = [
   },
   {
     id: "21",
-    title: "Prancha de Surf",
+    title: "Prancha de surf seminova",
     description: "Prancha de surf seminova.",
     price: 420,
     imageUrl: "https://picsum.photos/200/170",
@@ -176,48 +177,48 @@ const DUMMY_ADS: Ad[] = [
   },
   {
     id: "22",
-    title: "Panela de Pressão Elétrica",
-    description: "Cozinhe seus alimentos de forma rápida e segura.",
+    title: "Cozinhe seus alimentos de forma rápida e segura",
+    description: "Panela de Pressão Elétrica",
     price: 299,
     imageUrl: "https://picsum.photos/200/171",
     location: "Cuiabá",
   },
   {
     id: "23",
-    title: "Liquidificador",
-    description: "Prepare vitaminas e sucos deliciosos.",
+    title: "Prepare vitaminas e sucos deliciosos",
+    description: "Liquidificador",
     price: 149,
     imageUrl: "https://picsum.photos/200/172",
     location: "Joinville",
   },
   {
     id: "24",
-    title: "Forno Elétrico",
-    description: "Asse bolos, pães e pizzas com facilidade.",
+    title: "Asse bolos, pães e pizzas com facilidade",
+    description: "Forno Elétrico",
     price: 399,
     imageUrl: "https://picsum.photos/200/173",
     location: "Londrina",
   },
   {
     id: "25",
-    title: "Aspirador de Pó",
-    description: "Mantenha sua casa sempre limpa e organizada.",
+    title: "Mantenha sua casa sempre limpa e organizada",
+    description: "Aspirador de Pó",
     price: 199,
     imageUrl: "https://picsum.photos/200/174",
     location: "Ananindeua",
   },
   {
     id: "26",
-    title: "Ferro de Passar Roupa",
-    description: "Passe suas roupas com rapidez e eficiência.",
+    title: "Passe suas roupas com rapidez e eficiência",
+    description: "Ferro de Passar Roupa",
     price: 79,
     imageUrl: "https://picsum.photos/200/175",
     location: "Aparecida de Goiânia",
   },
   {
     id: "27",
-    title: "Batedeira",
-    description: "Prepare massas e cremes com facilidade.",
+    title: "Prepare massas e cremes com facilidade",
+    description: "Batedeira",
     price: 129,
     imageUrl: "https://picsum.photos/200/176",
     location: "Serra",
@@ -240,9 +241,12 @@ const AdList = () => {
           <div className="flex flex-col">
             <img src={ad.imageUrl} alt={ad.title} className="rounded-md object-cover h-40 w-full" />
             <CardContent className="p-2">
-              <p className="text-sm font-medium">{ad.description}</p>
-              <p className="text-sm font-medium">Preço: R$ {ad.price}</p>
-              <p className="text-xs text-gray-500">Localização: {ad.location}</p>
+              <p className="text-sm font-medium">{ad.title}</p>
+              <p className="text-sm font-medium">R$ {ad.price}</p>
+              <div className="flex items-center text-xs text-gray-500">
+                <MapPin className="h-3 w-3 mr-1" />
+                {ad.location}
+              </div>
             </CardContent>
           </div>
         </Card>
