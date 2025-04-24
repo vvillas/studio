@@ -54,11 +54,11 @@ const Navbar = () => {
           <Button variant="ghost" size="icon" onClick={toggleDarkMode}>
             {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </Button>
+          <ShoppingCart className="h-5 w-5" />
           <Avatar>
             <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
-          <ShoppingCart className="h-5 w-5" />
         </div>
       </div>
     </div>
