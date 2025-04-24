@@ -249,7 +249,7 @@ const AdList = () => {
                <hr className="my-2 border-gray-200 dark:border-gray-700" />
               <div className="flex items-center justify-between">
               
-              <p className="text-sm font-bold">R$ {ad.price}</p>
+              <p className="text-lg font-bold text-right">R$ {ad.price}</p>
               </div>
             </CardContent>
           </div>
