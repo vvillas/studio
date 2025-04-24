@@ -7,7 +7,6 @@ import { ShoppingCart } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
-import { Plus } from 'lucide-react';
 
 const Navbar = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -50,8 +49,7 @@ const Navbar = () => {
         <div className="flex items-center space-x-4">
           <Link href="/post-ad">
             <Button>
-              <Plus className="mr-2 h-4 w-4" />
-              Postar Anúncio
+              Anuncie
             </Button>
           </Link>
           <Switch id="dark-mode" checked={isDarkMode} onCheckedChange={toggleDarkMode} />
