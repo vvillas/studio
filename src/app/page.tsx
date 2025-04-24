@@ -3,6 +3,8 @@
 import AdList from '@/components/AdList';
 import type {Metadata} from 'next';
 import {useEffect, useState} from 'react';
+import {Button} from "@/components/ui/button";
+import {ChevronLeft, ChevronRight} from "lucide-react";
 
 const FEATURED_ADS = [
   {
@@ -49,14 +51,31 @@ const FEATURED_ADS = [
 
 export default function Home() {
   const [currentAdIndex, setCurrentAdIndex] = useState(0);
+  const [autoPlay, setAutoPlay] = useState(true);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentAdIndex(prevIndex => (prevIndex + 1) % FEATURED_ADS.length);
-    }, 5000); // Troca a cada 5 segundos
+    let intervalId: NodeJS.Timeout;
+
+    if (autoPlay) {
+      intervalId = setInterval(() => {
+        setCurrentAdIndex(prevIndex => (prevIndex + 1) % FEATURED_ADS.length);
+      }, 5000); // Troca a cada 5 segundos
+    }
 
     return () => clearInterval(intervalId); // Limpa o intervalo no cleanup
-  }, []);
+  }, [autoPlay]);
+
+  const goToPreviousAd = () => {
+    setCurrentAdIndex(prevIndex => (prevIndex - 1 + FEATURED_ADS.length) % FEATURED_ADS.length);
+  };
+
+  const goToNextAd = () => {
+    setCurrentAdIndex(prevIndex => (prevIndex + 1) % FEATURED_ADS.length);
+  };
+
+  const toggleAutoPlay = () => {
+    setAutoPlay(!autoPlay);
+  };
 
   return (
     <div>
@@ -73,6 +92,29 @@ export default function Home() {
             {FEATURED_ADS[currentAdIndex].title}
           </h2>
           <p className="text-sm">{FEATURED_ADS[currentAdIndex].description}</p>
+        </div>
+
+        {/* Controles do Banner */}
+        <div className="absolute top-1/2 transform -translate-y-1/2 left-2 right-2 flex justify-between items-center">
+          <Button variant="ghost" size="icon" onClick={goToPreviousAd}>
+            <ChevronLeft className="h-6 w-6" />
+          </Button>
+          <Button variant="ghost" size="icon" onClick={goToNextAd}>
+            <ChevronRight className="h-6 w-6" />
+          </Button>
+        </div>
+        {/* Indicadores de slide */}
+        <div className="absolute bottom-2 left-0 w-full flex justify-center items-center space-x-2">
+          {FEATURED_ADS.map((ad, index) => (
+            <button
+              key={ad.id}
+              className={`h-2 w-2 rounded-full ${index === currentAdIndex ? 'bg-white' : 'bg-gray-500'}`}
+              onClick={() => {
+                setCurrentAdIndex(index);
+                setAutoPlay(false);
+              }}
+            />
+          ))}
         </div>
       </div>
 
