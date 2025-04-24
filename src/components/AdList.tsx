@@ -12,6 +12,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Bicicleta vintage clássica em excelente estado.",
     price: 250,
     imageUrl: "https://picsum.photos/200/150",
+    location: "São Paulo",
   },
   {
     id: "2",
@@ -19,6 +20,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Jaqueta de couro genuíno, pouco usada.",
     price: 120,
     imageUrl: "https://picsum.photos/200/151",
+    location: "Rio de Janeiro",
   },
   {
     id: "3",
@@ -26,6 +28,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Cafeteira de alta qualidade, faz um café delicioso.",
     price: 80,
     imageUrl: "https://picsum.photos/200/152",
+    location: "Belo Horizonte",
   },
   {
     id: "4",
@@ -33,6 +36,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Câmera fotográfica profissional com lentes extras.",
     price: 450,
     imageUrl: "https://picsum.photos/200/153",
+    location: "Porto Alegre",
   },
   {
     id: "5",
@@ -40,6 +44,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Mesa de jantar de madeira maciça para 6 pessoas.",
     price: 320,
     imageUrl: "https://picsum.photos/200/154",
+    location: "Curitiba",
   },
   {
     id: "6",
@@ -47,6 +52,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Coleção de livros raros em perfeito estado de conservação.",
     price: 180,
     imageUrl: "https://picsum.photos/200/155",
+    location: "Salvador",
   },
   {
     id: "7",
@@ -54,6 +60,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Relógio de pulso antigo, revisado e funcionando.",
     price: 200,
     imageUrl: "https://picsum.photos/200/156",
+    location: "Fortaleza",
   },
   {
     id: "8",
@@ -61,6 +68,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Sofá retrátil e reclinável, super confortável.",
     price: 500,
     imageUrl: "https://picsum.photos/200/157",
+    location: "Manaus",
   },
   {
     id: "9",
@@ -68,6 +76,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Tapete persa autêntico, feito à mão.",
     price: 600,
     imageUrl: "https://picsum.photos/200/158",
+    location: "Recife",
   },
   {
     id: "10",
@@ -75,6 +84,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Guitarra elétrica semi nova com amplificador.",
     price: 750,
     imageUrl: "https://picsum.photos/200/159",
+    location: "Goiânia",
   },
   {
     id: "11",
@@ -82,6 +92,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Vestido de festa longo, ideal para formaturas e casamentos.",
     price: 380,
     imageUrl: "https://picsum.photos/200/160",
+    location: "Belém",
   },
   {
     id: "12",
@@ -89,6 +100,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Skate novo, ideal para iniciantes.",
     price: 150,
     imageUrl: "https://picsum.photos/200/161",
+    location: "Campinas",
   },
   {
     id: "13",
@@ -96,6 +108,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Tênis de corrida profissional, confortável e leve.",
     price: 220,
     imageUrl: "https://picsum.photos/200/162",
+    location: "Santos",
   },
   {
     id: "14",
@@ -103,6 +116,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Notebook com processador i5, 8GB de RAM e SSD de 256GB.",
     price: 1800,
     imageUrl: "https://picsum.photos/200/163",
+    location: "Ribeirão Preto",
   },
   {
     id: "15",
@@ -110,6 +124,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Fone de ouvido Bluetooth com cancelamento de ruído.",
     price: 120,
     imageUrl: "https://picsum.photos/200/164",
+    location: "Uberlândia",
   },
   {
     id: "16",
@@ -117,6 +132,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Câmera antiga para colecionadores.",
     price: 300,
     imageUrl: "https://picsum.photos/200/165",
+    location: "São José dos Campos",
   },
   {
     id: "17",
@@ -124,6 +140,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Mesa de escritório em bom estado.",
     price: 280,
     imageUrl: "https://picsum.photos/200/166",
+    location: "Sorocaba",
   },
   {
     id: "18",
@@ -131,6 +148,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Luminária de chão moderna.",
     price: 90,
     imageUrl: "https://picsum.photos/200/167",
+    location: "Osasco",
   },
   {
     id: "19",
@@ -138,6 +156,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Conjunto de quadros para decoração de interiores.",
     price: 150,
     imageUrl: "https://picsum.photos/200/168",
+    location: "Santo André",
   },
   {
     id: "20",
@@ -145,6 +164,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Escrivaninha para estudo ou trabalho.",
     price: 350,
     imageUrl: "https://picsum.photos/200/169",
+    location: "Contagem",
   },
   {
     id: "21",
@@ -152,13 +172,15 @@ const DUMMY_ADS: Ad[] = [
     description: "Prancha de surf seminova.",
     price: 420,
     imageUrl: "https://picsum.photos/200/170",
+    location: "Jundiaí",
   },
-    {
+  {
     id: "22",
     title: "Panela de Pressão Elétrica",
     description: "Cozinhe seus alimentos de forma rápida e segura.",
     price: 299,
     imageUrl: "https://picsum.photos/200/171",
+    location: "Cuiabá",
   },
   {
     id: "23",
@@ -166,6 +188,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Prepare vitaminas e sucos deliciosos.",
     price: 149,
     imageUrl: "https://picsum.photos/200/172",
+    location: "Joinville",
   },
   {
     id: "24",
@@ -173,6 +196,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Asse bolos, pães e pizzas com facilidade.",
     price: 399,
     imageUrl: "https://picsum.photos/200/173",
+    location: "Londrina",
   },
   {
     id: "25",
@@ -180,6 +204,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Mantenha sua casa sempre limpa e organizada.",
     price: 199,
     imageUrl: "https://picsum.photos/200/174",
+    location: "Ananindeua",
   },
   {
     id: "26",
@@ -187,6 +212,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Passe suas roupas com rapidez e eficiência.",
     price: 79,
     imageUrl: "https://picsum.photos/200/175",
+    location: "Aparecida de Goiânia",
   },
   {
     id: "27",
@@ -194,6 +220,7 @@ const DUMMY_ADS: Ad[] = [
     description: "Prepare massas e cremes com facilidade.",
     price: 129,
     imageUrl: "https://picsum.photos/200/176",
+    location: "Serra",
   },
 ];
 
@@ -215,6 +242,7 @@ const AdList = () => {
             <CardContent className="p-2">
               <p className="text-sm font-medium">{ad.description}</p>
               <p className="text-sm font-medium">Preço: R$ {ad.price}</p>
+              <p className="text-xs text-gray-500">Localização: {ad.location}</p>
             </CardContent>
           </div>
         </Card>
