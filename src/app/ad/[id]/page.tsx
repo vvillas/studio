@@ -3,7 +3,7 @@
 import React from 'react';
 import {Ad} from '@/types/ad';
 import {MapPin} from 'lucide-react';
-import {Carousel} from '@/components/ui/carousel';
+import Carousel from '@/components/ui/carousel';
 import {Button} from "@/components/ui/button";
 
 interface AdDetailPageProps {
@@ -39,37 +39,23 @@ const AdDetailPage: React.FC<AdDetailPageProps> = ({params}) => {
     return <div>Anúncio não encontrado.</div>;
   }
 
+  const slides = [...(ad.images || []), ...(ad.videoUrl ? [ad.videoUrl] : [])];
+
+
   return (
     <div className="container mx-auto py-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Carrossel de Imagens e Vídeos */}
         <div className="md:col-span-1">
-          <Carousel
-            opts={{
-              loop: true,
-            }}
-            className="w-full"
-          >
-            {(ad.images || []).map((image, index) => (
-              <div key={index} className="relative w-full h-64 overflow-hidden rounded-md">
-                <img
-                  src={image}
-                  alt={`Imagem ${index + 1} do anúncio`}
-                  className="absolute top-0 left-0 w-full h-full object-cover"
-                />
-              </div>
-            ))}
-            {ad.videoUrl && (
-              <div className="relative w-full h-64 overflow-hidden rounded-md">
-                <iframe
-                  src={ad.videoUrl}
-                  title="Vídeo do anúncio"
-                  allowFullScreen
-                  className="absolute top-0 left-0 w-full h-full"
-                />
-              </div>
+            {slides.length > 0 ? (
+              <Carousel slides={slides} />
+            ) : (
+              <img
+                src={ad.imageUrl}
+                alt={ad.title}
+                className="w-full h-64 object-cover rounded-md"
+              />
             )}
-          </Carousel>
         </div>
 
         {/* Informações do Produto */}
