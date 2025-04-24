@@ -7,14 +7,14 @@ const CategoryFilter = () => {
     <div className="mb-4">
       <Select>
         <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="Filter by category" />
+          <SelectValue placeholder="Filtrar por categoria" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="electronics">Electronics</SelectItem>
-          <SelectItem value="furniture">Furniture</SelectItem>
-          <SelectItem value="clothing">Clothing</SelectItem>
-          <SelectItem value="books">Books</SelectItem>
-          <SelectItem value="other">Other</SelectItem>
+          <SelectItem value="electronics">Eletrônicos</SelectItem>
+          <SelectItem value="furniture">Móveis</SelectItem>
+          <SelectItem value="clothing">Roupas</SelectItem>
+          <SelectItem value="books">Livros</SelectItem>
+          <SelectItem value="other">Outros</SelectItem>
         </SelectContent>
       </Select>
     </div>

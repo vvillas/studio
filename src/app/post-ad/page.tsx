@@ -20,18 +20,18 @@ import { ImageIcon } from "lucide-react";
 
 const adSchema = z.object({
   title: z.string().min(3, {
-    message: "Title must be at least 3 characters.",
+    message: "O título deve ter pelo menos 3 caracteres.",
   }),
   description: z.string().min(10, {
-    message: "Description must be at least 10 characters.",
+    message: "A descrição deve ter pelo menos 10 caracteres.",
   }),
   price: z.number().min(0, {
-    message: "Price must be a positive number.",
+    message: "O preço deve ser um número positivo.",
   }),
   images: z
     .array(z.string())
     .max(12, {
-      message: "You can upload a maximum of 12 images.",
+      message: "Você pode enviar no máximo 12 imagens.",
     })
     .optional(),
   videoUrl: z.string().optional(),
@@ -50,13 +50,13 @@ const PostAd = () => {
   });
 
   const onSubmit = (values: z.infer<typeof adSchema>) => {
-    // Here you would handle the form submission, e.g., sending the data to an API.
+    // Aqui você lidaria com o envio do formulário, por exemplo, enviando os dados para uma API.
     console.log(values);
   };
 
   return (
     <div className="container mx-auto py-8">
-      <h1 className="text-2xl font-bold mb-4">Post a New Ad</h1>
+      <h1 className="text-2xl font-bold mb-4">Postar um Novo Anúncio</h1>
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -65,12 +65,12 @@ const PostAd = () => {
             name="title"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Title</FormLabel>
+                <FormLabel>Título</FormLabel>
                 <FormControl>
-                  <Input placeholder="Ad title" {...field} />
+                  <Input placeholder="Título do anúncio" {...field} />
                 </FormControl>
                 <FormDescription>
-                  Enter a descriptive title for your ad.
+                  Insira um título descritivo para o seu anúncio.
                 </FormDescription>
                 <FormMessage />
               </FormItem>
@@ -82,15 +82,15 @@ const PostAd = () => {
             name="description"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Description</FormLabel>
+                <FormLabel>Descrição</FormLabel>
                 <FormControl>
                   <Textarea
-                    placeholder="Describe the item you are selling"
+                    placeholder="Descreva o item que você está vendendo"
                     {...field}
                   />
                 </FormControl>
                 <FormDescription>
-                  Provide a detailed description of the item.
+                  Forneça uma descrição detalhada do item.
                 </FormDescription>
                 <FormMessage />
               </FormItem>
@@ -102,7 +102,7 @@ const PostAd = () => {
             name="price"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Price</FormLabel>
+                <FormLabel>Preço</FormLabel>
                 <FormControl>
                   <Input
                     type="number"
@@ -114,7 +114,7 @@ const PostAd = () => {
                   />
                 </FormControl>
                 <FormDescription>
-                  Enter the price you are asking for the item.
+                  Insira o preço que você está pedindo pelo item.
                 </FormDescription>
                 <FormMessage />
               </FormItem>
@@ -126,7 +126,7 @@ const PostAd = () => {
             name="images"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Images</FormLabel>
+                <FormLabel>Imagens</FormLabel>
                 <FormControl>
                   <Input
                     type="file"
@@ -143,7 +143,7 @@ const PostAd = () => {
                   />
                 </FormControl>
                 <FormDescription>
-                  Upload up to 12 images of the item.
+                  Envie até 12 imagens do item.
                 </FormDescription>
                 <FormMessage />
               </FormItem>
@@ -155,12 +155,12 @@ const PostAd = () => {
             name="videoUrl"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Video URL (YouTube, Vimeo, Facebook)</FormLabel>
+                <FormLabel>URL do Vídeo (YouTube, Vimeo, Facebook)</FormLabel>
                 <FormControl>
                   <Input placeholder="https://www.youtube.com/watch?v=..." {...field} />
                 </FormControl>
                 <FormDescription>
-                  Add a link to a video showcasing the item.
+                  Adicione um link para um vídeo mostrando o item.
                 </FormDescription>
                 <FormMessage />
               </FormItem>
@@ -169,7 +169,7 @@ const PostAd = () => {
 
           <Button type="submit">
             <ImageIcon className="mr-2 h-4 w-4" />
-            Post Ad
+            Postar Anúncio
           </Button>
         </form>
       </Form>
