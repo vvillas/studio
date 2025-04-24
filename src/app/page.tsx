@@ -243,6 +243,7 @@ export default function Home() {
   const [currentAdIndex, setCurrentAdIndex] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
   const isMobile = useIsMobile();
+  const isLargeScreen = useIsLargeScreen();
 
   useEffect(() => {
     let intervalId: NodeJS.Timeout;
@@ -329,4 +330,5 @@ export default function Home() {
     </div>
   );
 }
+
 
