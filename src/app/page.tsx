@@ -8,6 +8,7 @@ import {ChevronLeft, ChevronRight} from "lucide-react";
 import Link from 'next/link';
 import {useIsMobile} from "@/hooks/use-mobile";
 import {Card, CardContent} from "@/components/ui/card";
+import {useIsLargeScreen} from "@/hooks/use-large-screen";
 
 const FEATURED_ADS = [
   {
@@ -145,13 +146,55 @@ const FEATURED_ADS = [
     price: 299,
     imageUrl: 'https://picsum.photos/200/171',
     location: 'Cuiabá',
+  },
+  {
+    id: '118',
+    title: 'Sanduicheira',
+    description: 'Prepare lanches rápidos e saborosos',
+    price: 99,
+    imageUrl: 'https://picsum.photos/201/171',
+    location: 'Teresina',
+  },
+  {
+    id: '119',
+    title: 'Purificador de água',
+    description: 'Água pura e cristalina sempre à disposição',
+    price: 450,
+    imageUrl: 'https://picsum.photos/202/171',
+    location: 'Rio Branco',
+  },
+  {
+    id: '120',
+    title: 'Grill elétrico',
+    description: 'Prepare churrascos deliciosos sem fumaça',
+    price: 279,
+    imageUrl: 'https://picsum.photos/203/171',
+    location: 'Macapá',
+  },
+  {
+    id: '121',
+    title: 'Torradeira',
+    description: 'Comece o dia com torradas crocantes e saborosas',
+    price: 69,
+    imageUrl: 'https://picsum.photos/204/171',
+    location: 'Boa Vista',
+  },
+  {
+    id: '122',
+    title: 'Fogão cooktop',
+    description: 'Design moderno e praticidade na cozinha',
+    price: 899,
+    imageUrl: 'https://picsum.photos/205/171',
+    location: 'Palmas',
   }
 ];
+
 
 export default function Home() {
   const [currentAdIndex, setCurrentAdIndex] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
   const isMobile = useIsMobile();
+  const isLargeScreen = useIsLargeScreen();
 
   useEffect(() => {
     let intervalId: NodeJS.Timeout;
@@ -173,15 +216,11 @@ export default function Home() {
     setCurrentAdIndex(prevIndex => (prevIndex + 1) % FEATURED_ADS.length);
   };
 
-  const toggleAutoPlay = () => {
-    setAutoPlay(!autoPlay);
-  };
-
   return (
     <div className="flex">
       {/* Sidebar (visible on desktop) */}
-      {!isMobile && (
-        <aside className="w-64 bg-secondary p-4 hidden md:block">
+      {isLargeScreen && (
+        <aside className="w-64 bg-secondary p-4 hidden lg:block">
           {/* Filter options here */}
           <h3 className="font-semibold mb-2">Filtros</h3>
           <Card className="mb-4">
@@ -214,7 +253,7 @@ export default function Home() {
         </aside>
       )}
 
-      <div className="flex-1">
+      <div className={isLargeScreen ? "flex-1" : "w-full"}>
         {/* Banner Rotativo */}
         <div className="relative w-full h-64 overflow-hidden rounded-md mb-4">
           <img
