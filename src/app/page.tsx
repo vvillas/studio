@@ -7,6 +7,7 @@ import {Button} from "@/components/ui/button";
 import {ChevronLeft, ChevronRight} from "lucide-react";
 import Link from 'next/link';
 import {useIsMobile} from "@/hooks/use-mobile";
+import {Card, CardContent} from "@/components/ui/card";
 
 const FEATURED_ADS = [
   {
@@ -96,6 +97,54 @@ const FEATURED_ADS = [
     price: 7500,
     imageUrl: 'https://picsum.photos/210/300',
     location: 'Belém',
+  },
+    {
+    id: '112',
+    title: 'Câmera fotográfica profissional',
+    description: 'Ideal para fotógrafos exigentes',
+    price: 3800,
+    imageUrl: 'https://picsum.photos/211/300',
+    location: 'Florianópolis',
+  },
+  {
+    id: '113',
+    title: 'Mesa de escritório ergonômica',
+    description: 'Conforto e produtividade no trabalho',
+    price: 950,
+    imageUrl: 'https://picsum.photos/212/300',
+    location: 'Vitória',
+  },
+  {
+    id: '114',
+    title: 'Bicicleta elétrica dobrável',
+    description: 'Mobilidade urbana e sustentável',
+    price: 2200,
+    imageUrl: 'https://picsum.photos/213/300',
+    location: 'Natal',
+  },
+  {
+    id: '115',
+    title: 'Kit de ferramentas completo',
+    description: 'Tudo o que você precisa para seus projetos',
+    price: 320,
+    imageUrl: 'https://picsum.photos/214/300',
+    location: 'João Pessoa',
+  },
+  {
+    id: '116',
+    title: 'Aspirador de pó robô',
+    description: 'Limpeza automática e eficiente',
+    price: 780,
+    imageUrl: 'https://picsum.photos/215/300',
+    location: 'Maceió',
+  },
+  {
+    id: '117',
+    title: 'Panela de pressão elétrica',
+    description: 'Cozinhe seus alimentos de forma rápida e segura',
+    price: 299,
+    imageUrl: 'https://picsum.photos/200/171',
+    location: 'Cuiabá',
   }
 ];
 
@@ -135,7 +184,33 @@ export default function Home() {
         <aside className="w-64 bg-secondary p-4 hidden md:block">
           {/* Filter options here */}
           <h3 className="font-semibold mb-2">Filtros</h3>
-          <p>Opções de filtro aqui...</p>
+          <Card className="mb-4">
+            <CardContent>
+              <h4 className="font-semibold mb-2">Categoria</h4>
+              <p>Opções de filtro de categoria aqui...</p>
+            </CardContent>
+          </Card>
+
+          <Card className="mb-4">
+            <CardContent>
+              <h4 className="font-semibold mb-2">Faixa de Preço</h4>
+              <p>Opções de filtro de faixa de preço aqui...</p>
+            </CardContent>
+          </Card>
+
+          <Card className="mb-4">
+            <CardContent>
+              <h4 className="font-semibold mb-2">Localização</h4>
+              <p>Opções de filtro de localização aqui...</p>
+            </CardContent>
+          </Card>
+
+          <Card className="mb-4">
+            <CardContent>
+              <h4 className="font-semibold mb-2">Condição</h4>
+              <p>Opções de filtro de condição aqui...</p>
+            </CardContent>
+          </Card>
         </aside>
       )}
 
