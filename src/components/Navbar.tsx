@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ShoppingCart, Moon, User } from "lucide-react";
+import { ShoppingCart, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
 import {
@@ -54,12 +54,11 @@ const Navbar = () => {
         </div>
 
         {/* Post Ad Button */}
-        <Link href="/post-ad" className="mr-4">
-          <Button>Anuncie</Button>
-        </Link>
-
-        {/* User Profile and Cart */}
         <div className="flex items-center space-x-4">
+          <Link href="/post-ad" className="mr-4">
+            <Button>Anuncie</Button>
+          </Link>
+
           <Button variant="ghost" size="icon" onClick={toggleDarkMode}>
             <Moon className="h-5 w-5" />
           </Button>
