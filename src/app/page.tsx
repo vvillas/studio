@@ -16,6 +16,7 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from "@/components/ui/menubar";
+import {useSearchParams} from "next/navigation";
 
 const FEATURED_ADS = [
   {
@@ -251,7 +252,9 @@ export default function Home() {
   const [autoPlay, setAutoPlay] = useState(true);
   const isMobile = useIsMobile();
   const isLargeScreen = useIsLargeScreen();
+    const searchParams = useSearchParams();
 
+    const searchTerm = searchParams.get('search') || '';
   useEffect(() => {
     let intervalId: NodeJS.Timeout;
 
@@ -271,6 +274,10 @@ export default function Home() {
   const goToNextAd = () => {
     setCurrentAdIndex(prevIndex => (prevIndex + 1) % FEATURED_ADS.length);
   };
+
+    const filteredAds = FEATURED_ADS.filter(ad =>
+        ad.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
   return (
     <div className="flex">
@@ -333,11 +340,12 @@ export default function Home() {
 
         {/* Lista de Anúncios */}
         <div className="container mx-auto py-8">
-          <AdList />
+          <AdList ads={filteredAds} />
         </div>
       </div>
     </div>
   );
 }
+
 
 
