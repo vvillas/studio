@@ -1,4 +1,4 @@
-# Firebase Studio
+# Altamerc
 
 This is a NextJS starter in Firebase Studio.
 
