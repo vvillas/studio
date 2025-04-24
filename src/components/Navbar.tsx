@@ -5,6 +5,9 @@ import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ShoppingCart } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
+import { Button } from "@/components/ui/button";
+import Link from 'next/link';
+import { Plus } from 'lucide-react';
 
 const Navbar = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -36,7 +39,7 @@ const Navbar = () => {
     <div className="bg-background sticky top-0 z-50 border-b">
       <div className="container mx-auto py-4 flex items-center justify-between">
         {/* Logo */}
-        <div className="text-lg font-bold">Classifieds Lite</div>
+        <div className="text-lg font-bold">Classificados Lite</div>
 
         {/* Search Bar */}
         <div className="flex-grow mx-4">
@@ -45,6 +48,12 @@ const Navbar = () => {
 
         {/* User Profile and Cart */}
         <div className="flex items-center space-x-4">
+          <Link href="/post-ad">
+            <Button>
+              <Plus className="mr-2 h-4 w-4" />
+              Postar Anúncio
+            </Button>
+          </Link>
           <Switch id="dark-mode" checked={isDarkMode} onCheckedChange={toggleDarkMode} />
           <Avatar>
             <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
@@ -58,4 +67,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
