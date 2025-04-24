@@ -1,6 +1,3 @@
-"use client";
-
-// AdList.tsx
 import { Card, CardContent } from "@/components/ui/card";
 import { useEffect, useState } from "react";
 import { Ad } from "@/types/ad";
