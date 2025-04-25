@@ -1,4 +1,4 @@
-# Altamex
+# Classifieds Lite
 
 This is a NextJS starter in Firebase Studio.
 
