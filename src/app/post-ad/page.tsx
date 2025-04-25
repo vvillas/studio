@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -18,7 +17,7 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { ImageIcon } from "lucide-react";
 
-const adSchema = z.object({
+const itmSchema = z.object({
   title: z.string().min(3, {
     message: "O título deve ter pelo menos 3 caracteres.",
   }),
@@ -37,9 +36,9 @@ const adSchema = z.object({
   videoUrl: z.string().optional(),
 });
 
-const PostAd = () => {
-  const form = useForm<z.infer<typeof adSchema>>({
-    resolver: zodResolver(adSchema),
+const PostItm = () => {
+  const form = useForm<z.infer<typeof itmSchema>>({
+    resolver: zodResolver(itmSchema),
     defaultValues: {
       title: "",
       description: "",
@@ -49,7 +48,7 @@ const PostAd = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof adSchema>) => {
+  const onSubmit = (values: z.infer<typeof itmSchema>) => {
     // Aqui você lidaria com o envio do formulário, por exemplo, enviando os dados para uma API.
     console.log(values);
   };
@@ -177,4 +176,4 @@ const PostAd = () => {
   );
 };
 
-export default PostAd;
+export default PostItm;

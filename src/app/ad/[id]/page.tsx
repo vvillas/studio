@@ -1,16 +1,16 @@
 'use client';
 
 import React from 'react';
-import {Ad} from '@/types/ad';
+import {Itm} from '@/types/ad';
 import {MapPin} from 'lucide-react';
 import Carousel from '@/components/ui/carousel';
 import {Button} from "@/components/ui/button";
 
-interface AdDetailPageProps {
+interface ItmDetailPageProps {
   params: { id: string };
 }
 
-const DUMMY_ADS: Ad[] = [
+const DUMMY_ADS: Itm[] = [
   {
     id: "1",
     title: "Bicicleta Vintage clássica em excelente estado",
@@ -32,7 +32,7 @@ const DUMMY_ADS: Ad[] = [
 ];
 
 
-const AdDetailPage: React.FC<AdDetailPageProps> = ({params}) => {
+const ItmDetailPage: React.FC<ItmDetailPageProps> = ({params}) => {
   const ad = DUMMY_ADS.find(ad => ad.id === params.id);
 
   if (!ad) {
@@ -86,4 +86,4 @@ const AdDetailPage: React.FC<AdDetailPageProps> = ({params}) => {
   );
 };
 
-export default AdDetailPage;
+export default ItmDetailPage;

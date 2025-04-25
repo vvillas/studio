@@ -1,5 +1,5 @@
 / src/types/ad.ts
-export interface Ad {
+export interface Itm {
   id: string;
   title: string;
   description: string;

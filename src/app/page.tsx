@@ -1,6 +1,6 @@
 'use client';
 
-import AdList from '@/components/AdList';
+import ItmList from '@/components/ItmList';
 import type {Metadata} from 'next';
 import {useEffect, useState} from 'react';
 import {Button} from "@/components/ui/button";
@@ -248,7 +248,7 @@ const FEATURED_ADS = [
 
 
 export default function Home() {
-  const [currentAdIndex, setCurrentAdIndex] = useState(0);
+  const [currentItmIndex, setCurrentItmIndex] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
   const isMobile = useIsMobile();
   const isLargeScreen = useIsLargeScreen();
@@ -260,19 +260,19 @@ export default function Home() {
 
     if (autoPlay) {
       intervalId = setInterval(() => {
-        setCurrentAdIndex(prevIndex => (prevIndex + 1) % FEATURED_ADS.length);
+        setCurrentItmIndex(prevIndex => (prevIndex + 1) % FEATURED_ADS.length);
       }, 5000); // Troca a cada 5 segundos
     }
 
     return () => clearInterval(intervalId); // Limpa o intervalo no cleanup
   }, [autoPlay]);
 
-  const goToPreviousAd = () => {
-    setCurrentAdIndex(prevIndex => (prevIndex - 1 + FEATURED_ADS.length) % FEATURED_ADS.length);
+  const goToPreviousItm = () => {
+    setCurrentItmIndex(prevIndex => (prevIndex - 1 + FEATURED_ADS.length) % FEATURED_ADS.length);
   };
 
-  const goToNextAd = () => {
-    setCurrentAdIndex(prevIndex => (prevIndex + 1) % FEATURED_ADS.length);
+  const goToNextItm = () => {
+    setCurrentItmIndex(prevIndex => (prevIndex + 1) % FEATURED_ADS.length);
   };
 
     const filteredAds = FEATURED_ADS.filter(ad =>
@@ -302,24 +302,24 @@ export default function Home() {
         {/* Banner Rotativo */}
         <div className="relative w-full h-64 overflow-hidden rounded-md mb-4">
           <img
-            src={FEATURED_ADS[currentAdIndex].imageUrl}
-            alt={FEATURED_ADS[currentAdIndex].title}
+            src={FEATURED_ADS[currentItmIndex].imageUrl}
+            alt={FEATURED_ADS[currentItmIndex].title}
             className="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-500"
             style={{opacity: 1}}
           />
           <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black to-transparent text-white p-4">
             <h2 className="text-lg font-semibold">
-              {FEATURED_ADS[currentAdIndex].title}
+              {FEATURED_ADS[currentItmIndex].title}
             </h2>
-            <p className="text-sm">{FEATURED_ADS[currentAdIndex].description}</p>
+            <p className="text-sm">{FEATURED_ADS[currentItmIndex].description}</p>
           </div>
 
           {/* Controles do Banner */}
           <div className="absolute top-1/2 transform -translate-y-1/2 left-2 right-2 flex justify-between items-center">
-            <Button variant="ghost" size="icon" className="bg-white/50 hover:bg-white/75" onClick={goToPreviousAd}>
+            <Button variant="ghost" size="icon" className="bg-white/50 hover:bg-white/75" onClick={goToPreviousItm}>
               <ChevronLeft className="h-6 w-6" />
             </Button>
-            <Button variant="ghost" size="icon" className="bg-white/50 hover:bg-white/75" onClick={goToNextAd}>
+            <Button variant="ghost" size="icon" className="bg-white/50 hover:bg-white/75" onClick={goToNextItm}>
               <ChevronRight className="h-6 w-6" />
             </Button>
           </div>
@@ -328,9 +328,9 @@ export default function Home() {
             {FEATURED_ADS.map((ad, index) => (
               <button
                 key={ad.id}
-                className={`h-2 w-2 rounded-full ${index === currentAdIndex ? 'bg-white' : 'bg-gray-500'}`}
+                className={`h-2 w-2 rounded-full ${index === currentItmIndex ? 'bg-white' : 'bg-gray-500'}`}
                 onClick={() => {
-                  setCurrentAdIndex(index);
+                  setCurrentItmIndex(index);
                   setAutoPlay(false);
                 }}
               />
@@ -340,12 +340,9 @@ export default function Home() {
 
         {/* Lista de Anúncios */}
         <div className="container mx-auto py-8">
-          <AdList ads={filteredAds} />
+          <ItmList items={filteredAds} />
         </div>
       </div>
     </div>
   );
 }
-
-
-
